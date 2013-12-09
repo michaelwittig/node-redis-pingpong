@@ -1,0 +1,46 @@
+{
+	"name": "cinovo-redis-pingpong",
+	"version": "0.1.0",
+	"description": "Sends PING commands to Redis using redis to check if the connection is alive by receiving a PONG within a certain timespan",
+	"keywords": [
+		"redis",
+		"PING",
+		"PONG"
+	],
+	"author": {
+		"name": "Michael Wittig",
+		"email": "michael.wittig@cinovo.de"
+	},
+	"contributors": [
+	],
+	"licenses": [{
+		"type": "Apache License, Version 2.0",
+		"url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+	}],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cinovo/node-redis-pingpong.git"
+	},
+	"dependencies": {
+		"assert-plus": "0.1.5"
+	},
+	"devDependencies": {
+		"redis": "0.9.1",
+		"redis-mock": "0.2.0",
+		"mocha": "1.15.1",
+		"jslint": "0.2.5",
+		"madge": "0.1.7",
+		"npmedge": "0.1.4"
+	},
+	"main": "index",
+	"engines": {
+		"node": ">= 0.6.0"
+	},
+	"scripts": {
+		"test": "make test"
+	},
+	"readmeFilename": "README.md",
+	"bugs": {
+		"url": "https://github.com/cinovo/node-redis-pingpong/issues"
+	}
+}
