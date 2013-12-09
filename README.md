@@ -7,7 +7,7 @@ cinovo-redis-pingpong sends PING commands to [Redis](http://redis.io) using [red
 
 ## Getting started
 
-### At first you must install and require the logger.
+### At first you must install and require the module.
 
     npm install cinovo-redis-pingpong
 
@@ -17,9 +17,11 @@ cinovo-redis-pingpong sends PING commands to [Redis](http://redis.io) using [red
 var pingpong = require("cinovo-redis-pingpong");
 `````
 
-### Watch a redis client
+### Then you can watch a redis client
 
 `````javascript
+var client = require("redis").createClient(6379, "localhost");
+...
 pingpong.watch(client, {"interval": 5000, "maxTimespan": 2000, "maxMissesBeforeError": 5});
 pingpong.on("error", function(err) {
 	console.log("redis is not available");
@@ -31,3 +33,48 @@ pingpong.stop();
 ### Done
 
 Now your redis client is watched.
+
+## API
+
+### watch(client, cfg)
+
+Watch a redis `client`.
+
+* `client`: Instance of redid.createClient()...
+* `cfg`: Object (optional)
+	* `interval`: Number - Milli seconds between two PINGs (optional, default: 5000)
+	* `maxTimespan`: Number - Milli seconds we wait for a PONG after the PING (optional, default: 2000)
+	* `maxMissesBeforeError`: Number - If we counted $maxMissesBeforeError misses an error is emitted (optional, default: 5)
+
+### stop()
+
+Stop the watcher.
+
+### Events
+
+#### ping()
+
+Is fired when the PING command is send.
+
+#### pong(timespan)
+
+Is fired when the PONG response arrived.
+
+* `timespan`: Number - Time between PING and PONG in milli seconds
+
+#### miss(misses, error)
+
+Is fired if redis was missed.
+
+* `misses`: Number . Number of misses so far
+* `error`: Error that caused the miss
+
+#### error(err)
+
+Is fired when redis is no longer available.
+
+* `error`: Error
+
+#### stop()
+
+If the watches was stopped.
