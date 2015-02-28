@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/cinovo/node-redis-pingpong.png)](http://travis-ci.org/cinovo/node-redis-pingpong)
+[![Build Status](https://secure.travis-ci.org/michaelwittig/node-redis-pingpong.png)](http://travis-ci.org/michaelwittig/node-redis-pingpong)
 [![NPM version](https://badge.fury.io/js/cinovo-redis-pingpong.png)](http://badge.fury.io/js/cinovo-redis-pingpong)
 
 # cinovo-redis-pingpong
